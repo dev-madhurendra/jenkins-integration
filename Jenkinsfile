@@ -7,12 +7,6 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dev-madhurendra/jenkins-integration-with-github.git']]])
             }
         }
-        stage('Install Dependencies') {
-            steps {
-                // Install project dependencies using pip
-                sh 'pip install -r requirements.txt'
-            }
-        }
         stage('Run Tests') {
             steps {
                 // Run unit tests
